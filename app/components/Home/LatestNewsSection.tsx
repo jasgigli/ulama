@@ -1,84 +1,93 @@
-// app/Home/LatestNewsSection.tsx
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { format } from "date-fns";
 import Section from "../ui/Section";
-import Card from "../ui/Section";
-import { NewsArticle } from "../../lib/types"; // Import the type
+import Card from "../ui/Card";
+import { NewsArticle } from "../../lib/types";
 
 const LatestNewsSection: React.FC = () => {
-  // Sample news data (replace with data from your API or CMS)
+  // Sample data – replace with your API/CMS data.
   const news: NewsArticle[] = [
     {
       slug: "sheikh-naqeebullah-mosque-issue",
-      title: "شیخ نقیب اللہ مسجد کا مسئلہ",
-      content: "یہاں خبر کی تفصیل ہوگی۔",
+      title: "شیخ نقیب اللہ مسجد کے مسائل اور حل",
+      content:
+        "مجلس اتحاد العلماء نے مسجد کے چیلنجز اور ممکنہ حل پر تفصیلی گفتگو کی ہے۔",
       date: "2024-08-08",
     },
     {
       slug: "important-meeting",
-      title: "اہم اجلاس",
-      content:
-        "تمام علماء کرام سے درخواست ہے کہ آج کے اجلاس میں اپنی شرکت کو یقینی بنائیں۔",
+      title: "اہم اجلاس: شرعی مسائل پر تبصرہ",
+      content: "آج کے اجلاس میں شرعی مسائل اور ان کے حل پر جامع تبصرہ کیا گیا۔",
       date: "2024-08-08",
     },
     {
       slug: "new-dars-e-quran-series",
       title: "درس قرآن کا نیا سلسلہ",
       content:
-        "مجلس اتحاد العلماء کی جانب سے درس قرآن کا ایک نیا سلسلہ شروع کیا جا رہا ہے۔",
+        "درس قرآن کے نئے سلسلے کا آغاز معیاری دینی تعلیم کے فروغ کا ذریعہ ہے۔",
       date: "2024-08-15",
     },
     {
       slug: "eid-ul-adha-celebrations",
       title: "عید الاضحی کی تقریبات",
       content:
-        "مجلس اتحاد العلماء کے زیر اہتمام عید الاضحی کی پروقار تقریبات کا انعقاد کیا گیا۔",
+        "عید الاضحی کی تقریبات میں سماجی اور مذہبی اقدار کو اجاگر کیا گیا۔",
       date: "2024-07-10",
     },
   ];
 
-  // Sort news by date (most recent first)
   const sortedNews = [...news].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
   return (
-    <Section>
-      <h2 className="text-3xl font-bold text-center mb-6 text-teal-700">
+    <Section className="py-16">
+      <motion.h2
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl sm:text-5xl font-bold text-center mb-10"
+        style={{ color: "var(--accent-color)" }}
+      >
         تازہ ترین خبریں
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedNews.map((article) => (
-          <Card key={article.slug}>
-            <div className="p-4">
-              <h2 className="text-xl font-semibold mb-2">
+      </motion.h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedNews.map((article, idx) => (
+          <motion.div
+            key={article.slug}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: idx * 0.2 }}
+          >
+            <Card>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold mb-3">
+                  <Link
+                    href={`/news/${article.slug}`}
+                    className="hover:text-[var(--accent-hover)] transition"
+                  >
+                    {article.title}
+                  </Link>
+                </h3>
+                <p className="text-gray-600 text-sm mb-2">
+                  {format(new Date(article.date), "PPP")}
+                </p>
+                <p className="text-gray-700 text-justify mb-4">
+                  {article.content.length > 120
+                    ? `${article.content.substring(0, 120)}...`
+                    : article.content}
+                </p>
                 <Link
                   href={`/news/${article.slug}`}
-                  className="hover:text-teal-600"
+                  className="text-[var(--accent-color)] hover:underline font-medium"
                 >
-                  {article.title}
+                  مزید پڑھیں
                 </Link>
-              </h2>
-              <p className="text-gray-600 text-sm mb-2">
-                {format(new Date(article.date), "PPP", {
-                  // locale: require("date-fns/locale/ur"),
-                })}
-              </p>
-              <p className="text-gray-700 text-justify">
-                {/* Display a short excerpt */}
-                {article.content.length > 100
-                  ? `${article.content.substring(0, 100)}...`
-                  : article.content}
-              </p>
-              <Link
-                href={`/news/${article.slug}`}
-                className="text-teal-600 hover:underline block mt-2"
-              >
-                مزید پڑھیں
-              </Link>
-            </div>
-          </Card>
+              </div>
+            </Card>
+          </motion.div>
         ))}
       </div>
     </Section>

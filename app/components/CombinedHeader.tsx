@@ -1,6 +1,5 @@
-// components/CombinedHeader.tsx
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,22 +7,13 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 const CombinedHeader: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-  // Updated professional menu item names
+  // Navigation links
   const navLinks = [
     { href: "/Home", text: "صفحۂ آغاز" },
     { href: "/services", text: "خدمات" },
     { href: "/about", text: "ہمارا تعارف" },
-
     { href: "/leaders", text: "رہنما" },
     { href: "/faq", text: "عمومی سوالات" },
     { href: "/contact", text: "ہم سے رابطہ" },

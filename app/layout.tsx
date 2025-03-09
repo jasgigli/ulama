@@ -1,3 +1,4 @@
+// app/layout.tsx or app/globals.tsx
 import "./globals.css";
 import { Noto_Nastaliq_Urdu, Amiri } from "next/font/google";
 import type { Metadata } from "next";
@@ -24,6 +25,34 @@ export const metadata: Metadata = {
   title: "مجلس اتحاد العلماء - معرفت کا راستہ",
   description:
     "مجلس اتحاد العلماء خالصہ 2 قاضی آباد پشاور میں واقع علماء اور اماموں کی ایک نمائندہ تنظیم ہے۔",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://ulama.vercel.app/",
+  },
+  openGraph: {
+    title: "مجلس اتحاد العلماء - معرفت کا راستہ",
+    description:
+      "مجلس اتحاد العلماء خالصہ 2 قاضی آباد پشاور میں واقع علماء اور اماموں کی ایک نمائندہ تنظیم ہے۔",
+    url: "https://ulama.vercel.app/",
+    siteName: "مجلس اتحاد العلماء",
+    images: [
+      {
+        url: "https://ulama.vercel.app//og-image.jpg",
+        width: 800,
+        height: 600,
+        alt: "مجلس اتحاد العلماء",
+      },
+    ],
+    locale: "ur_PK",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "مجلس اتحاد العلماء - معرفت کا راستہ",
+    description:
+      "مجلس اتحاد العلماء خالصہ 2 قاضی آباد پشاور میں واقع علماء اور اماموں کی ایک نمائندہ تنظیم ہے۔",
+    image: "https://ulama.vercel.app//og-image.jpg",
+  },
 };
 
 interface RootLayoutProps {

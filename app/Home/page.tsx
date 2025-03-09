@@ -7,7 +7,10 @@ import ObjectivesSection from "../components/Home/ObjectivesSection";
 import AreaSection from "../components/Home/AreaSection";
 import LeadersSection from "../components/Home/LeadersSection";
 import ActivitiesSection from "../components/Home/ActivitiesSection";
-import AlertSection from "../components/AlertSection";
+// import AlertSection from "../components/AlertSection";
+import TestimonialsSection from "../components/Home/TestimonialsSection";
+import MissionSection from "../components//Home/MissionSection";
+import GlobalImpactSection from "../components/Home/GlobalImpactSection";
 
 interface SectionComponent {
   component: React.ComponentType;
@@ -18,12 +21,15 @@ interface SectionComponent {
 const HomePage = () => {
   const sections: SectionComponent[] = [
     { component: WelcomeSection, key: "welcome", id: "welcome" },
-    { component: AlertSection, key: "alert", id: "alert" },
+    // { component: AlertSection, key: "alert", id: "alert" },
     { component: ObjectivesSection, key: "objectives", id: "objectives" },
     { component: AreaSection, key: "area", id: "area" },
     { component: LeadersSection, key: "leaders", id: "leaders" },
     { component: ActivitiesSection, key: "activities", id: "activities" },
     { component: LatestNewsSection, key: "news", id: "news" },
+    { component: TestimonialsSection, key: "testimonials", id: "testimonials" },
+    { component: MissionSection, key: "mission", id: "mission" },
+    { component: GlobalImpactSection, key: "globalimpact", id: "globalimpact" },
   ];
 
   const sectionVariants = {

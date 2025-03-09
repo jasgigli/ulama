@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Button from "@/app/components/ui/Button";
-import Section from "@/app/components/ui/Section";
 
 const ContactPage: React.FC = () => {
   const [submissionStatus, setSubmissionStatus] = React.useState<

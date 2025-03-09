@@ -1,6 +1,5 @@
 // app/components/AlertSection.tsx
 import React from "react";
-import { motion } from "framer-motion";
 
 const AlertSection: React.FC = () => {
   return (
