@@ -1,0 +1,53 @@
+my-majlis-website/
+├── app/
+│   ├── about/
+│   │   └── page.tsx                # About Page
+│   ├── contact/
+│   │   └── page.tsx                # Contact Page
+│   ├── faq/
+│   │   └── page.tsx                # FAQ Page
+│   ├── leaders/
+│   │   └── page.tsx                # Leaders Page
+│   ├── news/
+│   │   ├── [slug]/
+│   │   │   └── page.tsx            # Individual News Article
+│   │   └── page.tsx                # News Listing Page
+│   ├── services/
+│   │   └── page.tsx                # Services Page
+│   ├── api/
+│   │   ├── contact/
+│   │   │   └── route.ts           # Contact Form API
+│   │   └── news/                   # Optional News API
+│   │       └── route.ts
+│   ├── Home/                       # Home Page Route
+│   │   └── page.tsx                # Home Page (/)
+│   ├── components/
+│   │   ├── Home/                   # Home Page Components
+│   │   │   ├── ActivitiesSection.tsx
+│   │   │   ├── AreaSection.tsx
+│   │   │   ├── LatestNewsSection.tsx
+│   │   │   ├── LeadersSection.tsx
+│   │   │   ├── ObjectivesSection.tsx
+│   │   │   └── WelcomeSection.tsx
+│   │   ├── ui/                    # Reusable UI Components
+│   │   │   ├── Button.tsx
+│   │   │   ├── Card.tsx
+│   │   │   └── Section.tsx
+│   │   ├── AlertSection.tsx      # Reusable, non-UI
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   └── NavigationBar.tsx
+│   ├── lib/
+│   │   ├── types.ts
+│   │   └── utils.ts
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx                  # Top-level redirect to /Home
+│   └── favicon.ico                  
+├── public/
+│   ├── ...
+├── .env.local
+├── next.config.js
+├── package.json
+├── tsconfig.json
+└── ...

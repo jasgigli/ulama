@@ -1,27 +1,62 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
-import Head from "next/head";
+import { Noto_Nastaliq_Urdu, Amiri } from "next/font/google";
+import type { Metadata } from "next";
 
-// Example of using a Google Font (replace with a suitable Urdu font)
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+import Footer from "@/app/components/Footer";
+import CombinedHeader from "./components/CombinedHeader";
+
+const notoNastaliq = Noto_Nastaliq_Urdu({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  variable: "--font-noto-nastaliq",
+  display: "swap",
+  preload: true,
 });
 
-export const metadata = {
-  title: "مجلس اتحاد العلماء",
-  description: "آپ کے علاقے کے اسلامی مسائل کے حل کے لئے علماء کی تنظیم",
-  keywords:
-    "اسلام, علماء, مسائل, حل, پشاور, قاضی آباد, دینی تعلیم, اتحاد, سماجی مسائل",
-  openGraph: {
-    images: ["/pic.png"],
-  },
+const amiri = Amiri({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  variable: "--font-amiri",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "مجلس اتحاد العلماء - معرفت کا راستہ",
+  description:
+    "مجلس اتحاد العلماء خالصہ 2 قاضی آباد پشاور میں واقع علماء اور اماموں کی ایک نمائندہ تنظیم ہے۔",
 };
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="ur" dir="rtl" className={`${inter.variable} font-sans`}>
-      <body>{children}</body>
+    <html
+      lang="ur"
+      dir="rtl"
+      className={`${notoNastaliq.variable} ${amiri.variable}`}
+    >
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5"
+        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className="flex flex-col min-h-screen bg-[rgb(var(--background-rgb))] text-[rgb(var(--foreground-rgb))]">
+        <CombinedHeader />
+        <main className="flex-grow container mx-auto px-4 py-6">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }
