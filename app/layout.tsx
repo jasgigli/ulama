@@ -1,26 +1,26 @@
 // app/layout.tsx or app/globals.tsx
 import "./globals.css";
-import { Noto_Nastaliq_Urdu, Amiri } from "next/font/google";
+
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 
 import Footer from "@/app/components/Footer";
 import CombinedHeader from "./components/CombinedHeader";
 
-const notoNastaliq = Noto_Nastaliq_Urdu({
-  subsets: ["arabic"],
-  weight: ["400", "700"],
-  variable: "--font-noto-nastaliq",
-  display: "swap",
-  preload: true,
-});
+// const notoNastaliq = Noto_Nastaliq_Urdu({
+//   subsets: ["arabic"],
+//   weight: ["400", "700"],
+//   variable: "--font-noto-nastaliq",
+//   display: "swap",
+//   preload: true,
+// });
 
-const amiri = Amiri({
-  subsets: ["arabic"],
-  weight: ["400", "700"],
-  variable: "--font-amiri",
-  display: "swap",
-});
+// const amiri = Amiri({
+//   subsets: ["arabic"],
+//   weight: ["400", "700"],
+//   variable: "--font-amiri",
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: "مجلس اتحاد العلماء - معرفت کا راستہ",
@@ -64,7 +64,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="ur"
       dir="rtl"
-      className={`${notoNastaliq.variable} ${amiri.variable}`}
+      // className={`${notoNastaliq.variable} ${amiri.variable}`}
     >
       <head>
         <meta
@@ -72,12 +72,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" /> */}
+        {/* <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
-        />
+        /> */}
       </head>
       <body className="flex flex-col min-h-screen bg-[rgb(var(--background-rgb))] text-[rgb(var(--foreground-rgb))]">
         <CombinedHeader />

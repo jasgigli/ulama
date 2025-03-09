@@ -19,7 +19,7 @@ html {
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
-  font-family: var(--font-noto-nastaliq), var(--font-amiri), serif;
+  /* font-family: var(--font-noto-nastaliq), var(--font-amiri), serif; */
 }
 
 /* Improve text rendering for Urdu */
