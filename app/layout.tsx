@@ -2,6 +2,7 @@
 import "./globals.css";
 import { Noto_Nastaliq_Urdu, Amiri } from "next/font/google";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 
 import Footer from "@/app/components/Footer";
 import CombinedHeader from "./components/CombinedHeader";
@@ -82,6 +83,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <CombinedHeader />
         <main className="flex-grow container mx-auto px-4 py-6">
           {children}
+          <Analytics />
         </main>
         <Footer />
       </body>
