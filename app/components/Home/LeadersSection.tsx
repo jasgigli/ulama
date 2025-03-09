@@ -1,9 +1,10 @@
-// app/Home/LeadersSection.tsx
+"use client";
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Section from "../ui/Section";
-import Card from "../ui/Section";
+import Card from "../ui/Card";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 interface Leader {
   src: string;
@@ -26,7 +27,7 @@ const LeadersSection: React.FC = () => {
       bio: "مولانا مفتی نذیر اللہ حقانی صاحب ایک جید عالم دین اور ممتاز شخصیت ہیں۔ آپ کی سرپرستی میں مجلس اتحاد العلماء دینی خدمات سرانجام دے رہی ہے۔",
     },
     {
-      src: "/images/leader2.jpg",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_a6hnLnfAaPpqZS_wKmFhHMRwjO2CEiK1XA&s",
       name: "شیخ قرآن و حدیث حضرت مفتی محمد ندیم محمود صاحب",
       role: "سرپرست",
       bio: "شیخ القرآن والحدیث حضرت مفتی محمد ندیم محمود صاحب ایک بلند پایہ عالم دین اور مفسر قرآن ہیں۔ آپ کی رہنمائی میں دینی تعلیمات کا فروغ عمل میں لایا جا رہا ہے۔",
@@ -75,38 +76,74 @@ const LeadersSection: React.FC = () => {
     },
     {
       src: "/abdulhaq.png",
-      name: "مولانا عبدالحق سرحدی ",
+      name: "مولانا عبدالحق سرحدی",
       role: "سیکرٹری اطلاعات",
       bio: "مولانا عبدالحق سرحدی مجلس اتحاد العلماء کے سیکرٹری اطلاعات ہیں۔ آپ تنظیم کی خبروں اور اعلانات کو عوام تک پہنچاتے ہیں۔",
     },
   ];
 
   return (
-    <Section>
-      <h2 className="text-3xl font-bold text-center mb-6 text-teal-700">
+    <Section className="py-20">
+      <motion.h2
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl sm:text-5xl font-bold text-center mb-12"
+        style={{ color: "var(--accent-color)" }}
+      >
         ہمارے راہنما
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      </motion.h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {leaders.map((leader, index) => (
           <motion.div
             key={index}
             variants={leaderVariant}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, rotate: 2 }}
             className="transition duration-300"
           >
-            <Card>
-              <div className="flex flex-col items-center text-center p-4">
-                <Image
-                  src={leader.src}
-                  alt={leader.name}
-                  width={120}
-                  height={120}
-                  className="rounded-full mb-3 object-cover border-4 border-teal-200"
-                  priority={index < 3}
-                />
-                <h3 className="text-xl font-semibold">{leader.name}</h3>
-                <p className="text-gray-600">{leader.role}</p>
-                <p className="mt-2 text-sm text-justify">{leader.bio}</p>
+            <Card className="rounded-3xl overflow-hidden shadow-2xl bg-white border border-gray-200">
+              <div className="flex flex-col items-center text-center p-6">
+                <div className="relative w-32 h-32 mb-4">
+                  <Image
+                    src={leader.src}
+                    alt={leader.name}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-full border-4 border-[var(--accent-color)]"
+                    priority={index < 3}
+                  />
+                </div>
+                <h3
+                  className="text-2xl font-bold mb-2"
+                  style={{ color: "var(--accent-color)" }}
+                >
+                  {leader.name}
+                </h3>
+                <p className="text-base text-gray-600">{leader.role}</p>
+                <p className="mt-3 text-sm text-gray-700 px-2">{leader.bio}</p>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  className="mt-4 flex space-x-3"
+                >
+                  <a
+                    href="#"
+                    className="text-[var(--accent-color)] hover:text-[var(--accent-hover)] transition-colors text-lg"
+                  >
+                    <FaFacebookF />
+                  </a>
+                  <a
+                    href="#"
+                    className="text-[var(--accent-color)] hover:text-[var(--accent-hover)] transition-colors text-lg"
+                  >
+                    <FaTwitter />
+                  </a>
+                  <a
+                    href="#"
+                    className="text-[var(--accent-color)] hover:text-[var(--accent-hover)] transition-colors text-lg"
+                  >
+                    <FaLinkedinIn />
+                  </a>
+                </motion.div>
               </div>
             </Card>
           </motion.div>

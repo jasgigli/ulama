@@ -2,14 +2,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import WelcomeSection from "../components/Home/WelcomeSection";
-import LatestNewsSection from "../components/Home/LatestNewsSection";
+import MissionSection from "../components/Home/MissionSection";
 import ObjectivesSection from "../components/Home/ObjectivesSection";
-import AreaSection from "../components/Home/AreaSection";
 import LeadersSection from "../components/Home/LeadersSection";
 import ActivitiesSection from "../components/Home/ActivitiesSection";
-// import AlertSection from "../components/AlertSection";
+import AreaSection from "../components/Home/AreaSection";
+import LatestNewsSection from "../components/Home/LatestNewsSection";
 import TestimonialsSection from "../components/Home/TestimonialsSection";
-import MissionSection from "../components//Home/MissionSection";
 import GlobalImpactSection from "../components/Home/GlobalImpactSection";
 
 interface SectionComponent {
@@ -19,16 +18,25 @@ interface SectionComponent {
 }
 
 const HomePage = () => {
+  // Logical order:
+  // 1. Welcome (hero)
+  // 2. Mission (vision and purpose)
+  // 3. Objectives (what we aim to achieve)
+  // 4. Leaders (the team behind the organization)
+  // 5. Activities (services provided)
+  // 6. Area (where we operate)
+  // 7. Latest News (updates)
+  // 8. Testimonials (social proof)
+  // 9. Global Impact (reach and influence)
   const sections: SectionComponent[] = [
     { component: WelcomeSection, key: "welcome", id: "welcome" },
-    // { component: AlertSection, key: "alert", id: "alert" },
+    { component: MissionSection, key: "mission", id: "mission" },
     { component: ObjectivesSection, key: "objectives", id: "objectives" },
-    { component: AreaSection, key: "area", id: "area" },
     { component: LeadersSection, key: "leaders", id: "leaders" },
     { component: ActivitiesSection, key: "activities", id: "activities" },
+    { component: AreaSection, key: "area", id: "area" },
     { component: LatestNewsSection, key: "news", id: "news" },
     { component: TestimonialsSection, key: "testimonials", id: "testimonials" },
-    { component: MissionSection, key: "mission", id: "mission" },
     { component: GlobalImpactSection, key: "globalimpact", id: "globalimpact" },
   ];
 

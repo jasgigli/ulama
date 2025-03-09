@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaQuoteLeft } from "react-icons/fa";
 import Section from "../ui/Section";
 
 interface Testimonial {
@@ -31,30 +32,28 @@ const testimonials: Testimonial[] = [
 
 const TestimonialsSection: React.FC = () => {
   return (
-    <Section className="py-16">
+    <Section className="py-20">
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl sm:text-5xl font-bold text-center mb-10"
+        className="text-4xl sm:text-5xl font-bold text-center mb-12"
         style={{ color: "var(--accent-color)" }}
       >
         ہمارے تاثرات
       </motion.h2>
-      <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10">
         {testimonials.map((t, idx) => (
           <motion.div
             key={t.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: idx * 0.2 }}
-            className="bg-white border border-gray-200 p-6 rounded-2xl shadow-md"
+            className="bg-white border border-gray-200 p-8 rounded-3xl shadow-2xl relative"
           >
-            <p className="text-lg text-gray-700 mb-4">“{t.message}”</p>
-            <p
-              className="text-right font-semibold"
-              style={{ color: "var(--accent-color)" }}
-            >
+            <FaQuoteLeft className="absolute top-4 left-4 text-4xl text-[var(--accent-color)] opacity-30" />
+            <p className="text-lg text-gray-800 mb-6">“{t.message}”</p>
+            <p className="text-right font-bold text-[var(--accent-color)]">
               - {t.name}
             </p>
           </motion.div>

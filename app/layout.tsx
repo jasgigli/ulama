@@ -51,7 +51,6 @@ export const metadata: Metadata = {
     title: "مجلس اتحاد العلماء - معرفت کا راستہ",
     description:
       "مجلس اتحاد العلماء خالصہ 2 قاضی آباد پشاور میں واقع علماء اور اماموں کی ایک نمائندہ تنظیم ہے۔",
-    image: "https://ulama.vercel.app//og-image.jpg",
   },
 };
 
