@@ -3,7 +3,7 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
-
+import { Analytics } from "@vercel/analytics/react"
 import Footer from "@/app/components/Footer";
 import CombinedHeader from "./components/CombinedHeader";
 
@@ -83,6 +83,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <CombinedHeader />
         <main className="flex-grow container mx-auto px-4 py-6">
           {children}
+          <Analytics />
           <Analytics />
         </main>
         <Footer />
