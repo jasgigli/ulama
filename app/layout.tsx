@@ -1,11 +1,11 @@
 // app/layout.tsx or app/globals.tsx
-import "./globals.css";
-import type { Metadata } from "next";
+import Footer from "@/app/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Noto_Nastaliq_Urdu, Amiri } from "next/font/google";
-import Footer from "@/app/components/Footer";
+import type { Metadata } from "next";
+import { Amiri, Noto_Nastaliq_Urdu } from "next/font/google";
 import CombinedHeader from "./components/CombinedHeader";
+import "./globals.css";
 
 const notoNastaliq = Noto_Nastaliq_Urdu({
   subsets: ["arabic"],
@@ -101,7 +101,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
       <body className="flex flex-col min-h-screen bg-[rgb(var(--background-rgb))] text-[rgb(var(--foreground-rgb))]">
         <CombinedHeader />
-        <main className="flex-grow container mx-auto px-4 py-6">
+        <main className="flex-grow">
           {children}
           <Analytics />
           <SpeedInsights />
